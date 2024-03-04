@@ -1,0 +1,29 @@
+h1{
+    color: burlywood;
+    padding-left: 1%;
+}
+
+.navbar{
+    display: flex;
+    width: 100vw;
+    height: 10vh;
+    background-color:#3C0753;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+.tags{
+    width: 15%;
+    display: flex;
+    padding-right: 2%;
+    justify-content: space-around;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration: none;
+}
