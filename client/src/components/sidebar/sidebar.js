@@ -2,6 +2,7 @@ import "../sidebar/sidebar.css";
 function Sidebar() {
   return (
     <>
+    <div>
       <div className="heading">
         <p>Choose your preferences</p>
       </div>
@@ -21,6 +22,7 @@ function Sidebar() {
           <br></br>
         </div>
         </div>
+      </div>
       </div>
     </>
   );
