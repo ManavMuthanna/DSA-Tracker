@@ -1,0 +1,14 @@
+tr{
+    outline: solid 1px black;
+}
+
+.table-div{
+    width: 100vw;
+    height: 100vh;
+    padding: 5%;
+}
+
+.row-content{
+    display: flex;
+    justify-content: space-between;
+}
