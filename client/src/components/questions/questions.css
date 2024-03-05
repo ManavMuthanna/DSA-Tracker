@@ -1,14 +1,46 @@
-tr{
-    outline: solid 1px black;
-}
+/* questions.css */
 
-.table-div{
-    width: 100vw;
-    height: 100vh;
-    padding: 5%;
-}
+table {
+    width: 80%;
+    height: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  tr {
+    border: 1px solid black;
+    /* border-bottom: 1px solid black; */
+  }
 
-.row-content{
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .table-div {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+  }
+  
+  .row-content {
     display: flex;
     justify-content: space-between;
-}
+    align-items: center;
+  }
+  
+  .checkbox-col {
+    width: 10%;
+    text-align: center;
+  }
+  
+  .question-table{
+    margin-bottom: 5%;
+  }
+  /* Add more styles as needed */
+  

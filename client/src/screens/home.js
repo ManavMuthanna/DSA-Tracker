@@ -8,7 +8,7 @@ function Home(){
         <>
         <Navbar></Navbar>
         <div className="content">
-        <Sidebar></Sidebar>
+        <Sidebar className='sidebar'></Sidebar>
         <Questions></Questions>
         </div>
         </>
