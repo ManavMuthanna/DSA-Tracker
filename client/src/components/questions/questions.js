@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../questions/questions.css";
 
-function Questions() {
+function Questions({ selectedDifficulty = {} }) {
   const object = {
     easy: ["Two sum", "Balanced Paranthesis"],
     medium: ["Two sum", "Balanced Paranthesis", "Splitwise"],
@@ -31,37 +31,48 @@ function Questions() {
     });
   };
 
+  const allDifficultiesUnchecked =
+  selectedDifficulty.easy === false &&
+  selectedDifficulty.medium === false &&
+  selectedDifficulty.hard === false;
+  console.log(allDifficultiesUnchecked);
   return (
     <>
       <div className="table-div">
-        {Object.entries(object).map(([difficulty, questions]) => (
-          <div className="question-table" key={difficulty}>
-            <h2>
-              {" "}
-              {difficulty.toUpperCase()} {" "}
-              {calculateProgress(difficulty)}
-            </h2>
-            <table>
-              <tbody>
-                {questions.map((question, questionIndex) => (
-                  <tr key={questionIndex}>
-                    <td>{questionIndex + 1}</td>
-                    <td>{question}</td>
-                    <td className="checkbox-col">
-                      <input
-                        type="checkbox"
-                        checked={checkedQuestions[difficulty][questionIndex]}
-                        onChange={() =>
-                          handleCheckboxChange(difficulty, questionIndex)
-                        }
-                      />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ))}
+        {allDifficultiesUnchecked ? (
+          <h2>No questions to recommend</h2>
+        ) : (
+          Object.entries(object).map(([difficulty, questions]) => (
+            selectedDifficulty?.[difficulty] && (
+              <div className="question-table" key={difficulty}>
+                <h2>
+                  {" "}
+                  {difficulty.toUpperCase()} {" "}
+                  {calculateProgress(difficulty)}
+                </h2>
+                <table>
+                  <tbody>
+                    {questions.map((question, questionIndex) => (
+                      <tr key={questionIndex}>
+                        <td>{questionIndex + 1}</td>
+                        <td>{question}</td>
+                        <td className="checkbox-col">
+                          <input
+                            type="checkbox"
+                            checked={checkedQuestions[difficulty][questionIndex]}
+                            onChange={() =>
+                              handleCheckboxChange(difficulty, questionIndex)
+                            }
+                          />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )
+          ))
+        )}
       </div>
     </>
   );
