@@ -47,7 +47,7 @@ function Sidebar() {
                 checked={selectedDifficulty.easy}
                 onChange={() => handleCheckboxChange('easy')}
               />
-              <label htmlFor="easy">Easy</label>
+              <label htmlFor="easy" style={{ userSelect: "none" }}>Easy</label>
               <br />
               <input
                 type="checkbox"
@@ -56,7 +56,7 @@ function Sidebar() {
                 checked={selectedDifficulty.medium}
                 onChange={() => handleCheckboxChange('medium')}
               />
-              <label htmlFor="medium">Medium</label>
+              <label htmlFor="medium" style={{ userSelect: "none" }}>Medium</label>
               <br />
               <input
                 type="checkbox"
@@ -65,7 +65,7 @@ function Sidebar() {
                 checked={selectedDifficulty.hard}
                 onChange={() => handleCheckboxChange('hard')}
               />
-              <label htmlFor="hard">Hard</label>
+              <label htmlFor="hard" style={{ userSelect: "none" }}>Hard</label>
               <br />
             </div>
           </div>

@@ -42,5 +42,7 @@ table {
   .question-table{
     margin-bottom: 5%;
   }
-  /* Add more styles as needed */
-  
+
+  .selected-row{
+    background-color: lightgreen;
+  }

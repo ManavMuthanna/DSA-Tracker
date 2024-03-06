@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { RiCheckboxCircleLine, RiCheckboxCircleFill } from "react-icons/ri";
 import "../questions/questions.css";
 
 function Questions({ selectedDifficulty = {} }) {
@@ -32,9 +33,9 @@ function Questions({ selectedDifficulty = {} }) {
   };
 
   const allDifficultiesUnchecked =
-  selectedDifficulty.easy === false &&
-  selectedDifficulty.medium === false &&
-  selectedDifficulty.hard === false;
+    selectedDifficulty.easy === false &&
+    selectedDifficulty.medium === false &&
+    selectedDifficulty.hard === false;
   console.log(allDifficultiesUnchecked);
   return (
     <>
@@ -42,36 +43,59 @@ function Questions({ selectedDifficulty = {} }) {
         {allDifficultiesUnchecked ? (
           <h2>No questions to recommend</h2>
         ) : (
-          Object.entries(object).map(([difficulty, questions]) => (
-            selectedDifficulty?.[difficulty] && (
-              <div className="question-table" key={difficulty}>
-                <h2>
-                  {" "}
-                  {difficulty.toUpperCase()} {" "}
-                  {calculateProgress(difficulty)}
-                </h2>
-                <table>
-                  <tbody>
-                    {questions.map((question, questionIndex) => (
-                      <tr key={questionIndex}>
-                        <td>{questionIndex + 1}</td>
-                        <td>{question}</td>
-                        <td className="checkbox-col">
-                          <input
-                            type="checkbox"
-                            checked={checkedQuestions[difficulty][questionIndex]}
-                            onChange={() =>
-                              handleCheckboxChange(difficulty, questionIndex)
-                            }
-                          />
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )
-          ))
+          Object.entries(object).map(
+            ([difficulty, questions]) =>
+              selectedDifficulty?.[difficulty] && (
+                <div className="question-table" key={difficulty}>
+                  <h2>
+                    {" "}
+                    {difficulty.toUpperCase()} {calculateProgress(difficulty)}
+                  </h2>
+                  <table>
+                    <tbody>
+                      {questions.map((question, questionIndex) => (
+                        <tr
+                          key={questionIndex}
+                          className={
+                            checkedQuestions[difficulty][questionIndex]
+                              ? "selected-row"
+                              : ""
+                          }
+                        >
+                          <td>{questionIndex + 1}</td>
+                          <td>{question}</td>
+                          <td className="checkbox-col" style={{ userSelect: "none" }}>
+                            {checkedQuestions[difficulty][questionIndex] ? (
+                              <RiCheckboxCircleFill
+                              size={24}
+                              color="darkgreen"
+                                onClick={() =>
+                                  handleCheckboxChange(
+                                    difficulty,
+                                    questionIndex
+                                  )
+                                }
+                              />
+                            ) : (
+                              <RiCheckboxCircleLine
+                              size={24}
+                              color='gray'
+                                onClick={() =>
+                                  handleCheckboxChange(
+                                    difficulty,
+                                    questionIndex
+                                  )
+                                }
+                              />
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )
+          )
         )}
       </div>
     </>
