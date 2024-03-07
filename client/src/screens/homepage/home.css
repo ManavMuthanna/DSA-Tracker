@@ -1,8 +1,9 @@
-.content{
+.home-content{
     display: flex;
     flex-direction: row;
 }
 
-.sidebar{
+.home-sidebar{
     position:static;
-}
+}   
+

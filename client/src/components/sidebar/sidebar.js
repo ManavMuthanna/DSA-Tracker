@@ -32,41 +32,47 @@ function Sidebar() {
   return (
     <>
       <div>
-        <div className="heading">
+        <div className="sidebar-heading">
           <p>Choose your preferences</p>
         </div>
         <div className="sidebar">
-          <div className="difficulty">
+          <div className="sidebar-difficulty">
             <h4>DIFFICULTY</h4>
             <br />
             <div className="checkboxes">
+              <div className='diff-checkbox-row'>
               <input
+              className='sidebar-input'
                 type="checkbox"
                 id="easy"
                 value="Easy"
                 checked={selectedDifficulty.easy}
                 onChange={() => handleCheckboxChange('easy')}
               />
-              <label htmlFor="easy" style={{ userSelect: "none" }}>Easy</label>
-              <br />
+              <label className='sidebar-label' htmlFor="easy" style={{ userSelect: "none" }}>Easy</label>
+              </div>
+              <div className='diff-checkbox-row'>
               <input
+                className='sidebar-input'
                 type="checkbox"
                 id="medium"
                 value="Medium"
                 checked={selectedDifficulty.medium}
                 onChange={() => handleCheckboxChange('medium')}
               />
-              <label htmlFor="medium" style={{ userSelect: "none" }}>Medium</label>
-              <br />
+              <label className='sidebar-label' htmlFor="medium" style={{ userSelect: "none" }}>Medium</label>
+              </div>
+              <div className='diff-checkbox-row'>
               <input
+              className='sidebar-input'
                 type="checkbox"
                 id="hard"
                 value="Hard"
                 checked={selectedDifficulty.hard}
                 onChange={() => handleCheckboxChange('hard')}
               />
-              <label htmlFor="hard" style={{ userSelect: "none" }}>Hard</label>
-              <br />
+              <label className='sidebar-label' htmlFor="hard" style={{ userSelect: "none" }}>Hard</label>
+              </div>
             </div>
           </div>
         </div>

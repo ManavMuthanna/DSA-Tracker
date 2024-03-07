@@ -1,4 +1,4 @@
-body {
+.login-body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -20,11 +20,11 @@ body {
 	text-align: center;
 }
 
-h1 {
+.login-header {
 	color: #720455;
 }
 
-label {
+.login-label{
 	display: block;
 	width: 100%;
 	margin-top: 10px;
@@ -35,7 +35,7 @@ label {
 }
 
 
-input {
+.login-input {
 	display: block;
 	width: 100%;
 	margin-bottom: 15px;
@@ -45,7 +45,7 @@ input {
 	border-radius: 5px;
 }
 
-button {
+.login-button {
 	padding: 15px;
 	border-radius: 10px;
 	margin-top: 15px;
@@ -58,13 +58,14 @@ button {
 	font-size: 16px;
 }
 
-.wrap {
+.login-wrap {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-a{
+.login-link{
     padding-left: 5px;
     text-decoration: none;
+	color: orangered;
 }

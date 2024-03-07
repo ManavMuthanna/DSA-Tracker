@@ -1,14 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-// import Home from './screens/home';
-import Signup from './screens/sign_up';
-// import Login from './screens/login_screen'
+import "./App.css";
+import {
+  BrowserRouter, Routes, Route} from "react-router-dom";
+import Home from './screens/homepage/home';
+import Signup from "./screens/signup/sign_up";
+import Login from "./screens/login/login_screen";
 
 function App() {
   return (
     // <Home></Home>
-    // <Login></Login>
-    <Signup></Signup>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

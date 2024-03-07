@@ -51,7 +51,7 @@ function Questions({ selectedDifficulty = {} }) {
                     {" "}
                     {difficulty.toUpperCase()} {calculateProgress(difficulty)}
                   </h2>
-                  <table>
+                  <table className="difficulty-table">
                     <tbody>
                       {questions.map((question, questionIndex) => (
                         <tr

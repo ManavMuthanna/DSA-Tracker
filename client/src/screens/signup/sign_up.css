@@ -1,4 +1,4 @@
-body {
+.signup-body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -10,7 +10,7 @@ body {
 	margin: 0;
 }
 
-.main {
+.signup-main {
 	background-color:#fff;
 	border-radius: 15px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -20,11 +20,11 @@ body {
 	text-align: center;
 }
 
-h1 {
+.signup-h1 {
 	color: #720455;
 }
 
-label {
+.signup-label {
 	display: block;
 	width: 100%;
 	margin-top: 10px;
@@ -35,7 +35,7 @@ label {
 }
 
 
-input {
+.signup-input {
 	display: block;
 	width: 100%;
 	margin-bottom: 15px;
@@ -45,7 +45,7 @@ input {
 	border-radius: 5px;
 }
 
-button {
+.signup-button {
 	padding: 15px;
 	border-radius: 10px;
 	margin-top: 15px;
@@ -58,13 +58,8 @@ button {
 	font-size: 16px;
 }
 
-.wrap {
+.signup-wrap {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-a{
-    padding-left: 5px;
-    text-decoration: none;
 }

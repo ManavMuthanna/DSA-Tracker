@@ -6,14 +6,11 @@
     color: wheat;
 }
 
-label{
+.sidebar-label{
     padding-left: 2%;
 }
 
-input{
-    margin-bottom: 3.5%;
-}
-.heading{
+.sidebar-heading{
     width: 20vw;
     height: 5vh;
     background-color:#030637;
@@ -23,8 +20,16 @@ input{
     justify-content: center;
     color: wheat;
 }
-.difficulty {
+
+.sidebar-difficulty {
     display: flex;
     flex-direction: column;
     padding-left: 9%;
+}
+
+.diff-checkbox-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 3%;
 }
