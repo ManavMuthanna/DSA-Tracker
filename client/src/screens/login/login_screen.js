@@ -1,15 +1,36 @@
 import "../login/login_screen.css";
 import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 function Login() {
   const navigate = useNavigate();
-  const handleLoginFormSubmit = (e) => {
+  const handleLoginFormSubmit = async (e) => {
     e.preventDefault();
     // Your form submission logic here
-    console.log(document.querySelector("#first").value);
-    console.log(document.querySelector("#password").value);
-    // After successful submission, navigate to the '/home' route
-    navigate("/home");
+    const userName = document.querySelector("#first").value;
+    const pwd = document.querySelector("#password").value;
+    try {
+      const loginInfo = {
+        "username": userName,
+        "password" : pwd
+        };
+  
+      // Make an Axios POST request to your backend route
+      const response = await axios.post('http://localhost:5000/auth/login', loginInfo);
+    
+      // After successful submission, navigate to the '/home' route
+      localStorage.setItem('token', response.data.token);
+      console.log("Login Successful!");
+      navigate("/home");
+    
+      // Optionally, you can handle the response data here
+      console.log(response.data);
+      } catch (error) {
+      // Handle server-side validation errors
+      console.error('Registration failed:', error.response.data);
+      // Display appropriate error messages to the user
+      alert('Login failed. Please check your username and password entered.');
+      }
   };
 
   return (
@@ -28,7 +49,7 @@ function Login() {
             required
           />
 
-          <label className="login-label" for="password">
+          <label className="login-label">
             Password:
           </label>
           <input
@@ -40,7 +61,7 @@ function Login() {
             required
           />
 
-          <div class="login-wrap">
+          <div className="login-wrap">
             <button className="login-button" type="submit">Submit</button>
           </div>
         </form>

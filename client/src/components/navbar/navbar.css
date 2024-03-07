@@ -27,3 +27,7 @@
 .navbar-link:visited{
     text-decoration: none;
 }
+
+#username{
+    cursor: pointer;
+}
