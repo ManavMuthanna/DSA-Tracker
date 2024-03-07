@@ -8,8 +8,7 @@ function Navbar() {
     return localStorage.getItem("token");
   };
 
-  // Make sure to replace 'http://localhost:5000' with the actual base URL of your backend
-  const baseURL = "http://localhost:5000";
+  const baseURL = process.env.REACT_APP_BASE_URL;
 
   const getUserProfile = async () => {
     try {

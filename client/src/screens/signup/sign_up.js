@@ -4,6 +4,7 @@ import axios from 'axios';
 
 function Signup() {
   const navigate = useNavigate();
+  const baseURL = process.env.REACT_APP_BASE_URL;
   const handleSignupFormSubmit = async (e) => {
     e.preventDefault();
     // Your form submission logic here
@@ -36,7 +37,7 @@ function Signup() {
 		  };
 
 		// Make an Axios POST request to your backend route
-		const response = await axios.post('http://localhost:5000/auth/register', signUpInfo);
+		const response = await axios.post(`${baseURL}/auth/register`, signUpInfo);
 	
 		// After successful submission, navigate to the '/home' route
 		alert("Registration Successful!");

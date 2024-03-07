@@ -4,6 +4,7 @@ import axios from 'axios';
 
 function Login() {
   const navigate = useNavigate();
+  const baseURL = process.env.REACT_APP_BASE_URL;
   const handleLoginFormSubmit = async (e) => {
     e.preventDefault();
     // Your form submission logic here
@@ -16,7 +17,7 @@ function Login() {
         };
   
       // Make an Axios POST request to your backend route
-      const response = await axios.post('http://localhost:5000/auth/login', loginInfo);
+      const response = await axios.post(`${baseURL}/auth/login`, loginInfo);
     
       // After successful submission, navigate to the '/home' route
       localStorage.setItem('token', response.data.token);
