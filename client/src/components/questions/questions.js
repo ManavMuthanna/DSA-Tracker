@@ -47,7 +47,7 @@ function Questions({ selectedDifficulty = {} }) {
             ([difficulty, questions]) =>
               selectedDifficulty?.[difficulty] && (
                 <div className="question-table" key={difficulty}>
-                  <h2>
+                  <h2 style={{ userSelect: "none" }}>
                     {" "}
                     {difficulty.toUpperCase()} {calculateProgress(difficulty)}
                   </h2>

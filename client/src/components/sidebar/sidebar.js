@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import '../sidebar/sidebar.css';
-import Questions from '../questions/questions';
+import React, { useState} from "react";
+import "../sidebar/sidebar.css";
+import Questions from "../questions/questions";
+import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 
 function Sidebar() {
   const [selectedDifficulty, setSelectedDifficulty] = useState({
@@ -16,18 +17,22 @@ function Sidebar() {
     }));
   };
 
-  const selectedCount = Object.values(selectedDifficulty).filter(Boolean).length;
-
-  useEffect(() => {
-    // If all checkboxes are unchecked, set all of them to checked initially
-    if (selectedCount === 0) {
-      setSelectedDifficulty({
-        easy: false,
-        medium: false,
-        hard: false,
-      });
-    }
-  }, [selectedCount]);
+  const CheckboxComponent = ({ checked, onClick }) =>
+    checked ? (
+      <ImCheckboxChecked
+        className="sidebar-input"
+        color="#030637"
+        // type="checkbox"
+        onClick={onClick}
+      />
+    ) : (
+      <ImCheckboxUnchecked
+        className="sidebar-input"
+        color="#030637"
+        // type="checkbox"
+        onClick={onClick}
+      />
+    );
 
   return (
     <>
@@ -40,38 +45,44 @@ function Sidebar() {
             <h4>DIFFICULTY</h4>
             <br />
             <div className="checkboxes">
-              <div className='diff-checkbox-row'>
-              <input
-              className='sidebar-input'
-                type="checkbox"
-                id="easy"
-                value="Easy"
-                checked={selectedDifficulty.easy}
-                onChange={() => handleCheckboxChange('easy')}
-              />
-              <label className='sidebar-label' htmlFor="easy" style={{ userSelect: "none" }}>Easy</label>
+              <div className="diff-checkbox-row">
+                <CheckboxComponent
+                  checked={selectedDifficulty.easy}
+                  onClick={() => handleCheckboxChange("easy")}
+                />
+                <label
+                  className="sidebar-label"
+                  htmlFor="easy"
+                  style={{ userSelect: "none" }}
+                >
+                  Easy
+                </label>
               </div>
-              <div className='diff-checkbox-row'>
-              <input
-                className='sidebar-input'
-                type="checkbox"
-                id="medium"
-                value="Medium"
-                checked={selectedDifficulty.medium}
-                onChange={() => handleCheckboxChange('medium')}
-              />
-              <label className='sidebar-label' htmlFor="medium" style={{ userSelect: "none" }}>Medium</label>
+              <div className="diff-checkbox-row">
+              <CheckboxComponent
+                  checked={selectedDifficulty.medium}
+                  onClick={() => handleCheckboxChange("medium")}
+                />
+                <label
+                  className="sidebar-label"
+                  htmlFor="medium"
+                  style={{ userSelect: "none" }}
+                >
+                  Medium
+                </label>
               </div>
-              <div className='diff-checkbox-row'>
-              <input
-              className='sidebar-input'
-                type="checkbox"
-                id="hard"
-                value="Hard"
-                checked={selectedDifficulty.hard}
-                onChange={() => handleCheckboxChange('hard')}
-              />
-              <label className='sidebar-label' htmlFor="hard" style={{ userSelect: "none" }}>Hard</label>
+              <div className="diff-checkbox-row">
+              <CheckboxComponent
+                  checked={selectedDifficulty.hard}
+                  onClick={() => handleCheckboxChange("hard")}
+                />
+                <label
+                  className="sidebar-label"
+                  htmlFor="hard"
+                  style={{ userSelect: "none" }}
+                >
+                  Hard
+                </label>
               </div>
             </div>
           </div>
