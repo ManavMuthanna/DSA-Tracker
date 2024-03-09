@@ -44,14 +44,36 @@ function Navbar() {
     }
   };
 
+  const handleLogout = () => {
+    // Clear the token from localStorage
+    localStorage.removeItem("token");
+    window.location.reload();
+
+    // Optionally, you can redirect the user to the login page or perform other logout-related actions
+    // For example, you can use react-router-dom to navigate to the login page:
+    // history.push("/login");
+  };
+
+  const toggleDropdown = () => {
+    // Implement logic to show/hide the dropdown
+    const dropdown = document.getElementById("logoutDropdown");
+    if (dropdown) {
+      dropdown.classList.toggle("show");
+    }
+  };
+
   // Call the function to fetch the user profile
   getUserProfile();
 
   return (
     <div className="navbar">
-      <h1 className="navbar-h1">DSA Tracker</h1>
+      <h1 className="navbar-h1">
+        {" "}
+        <Link to="/home">DSA Tracker</Link>
+      </h1>
+
       <div className="tags">
-        <Link className="navbar-link" to="/home">
+        <Link className="navbar-link" to="/team">
           <h2>Team</h2>
         </Link>
         <Link
@@ -61,7 +83,16 @@ function Navbar() {
         >
           <h2>Code</h2>
         </Link>
-          <h2 className="navbar-link" id="username" style={{ userSelect: ""}}>" "</h2>
+        <div className="dropdown">
+        <h2 className="navbar-link" id="username" style={{ userSelect: "" }} onClick={toggleDropdown}>
+          " "
+        </h2>
+        <div id="logoutDropdown" className="dropdown-content">
+            <a href="#" onClick={handleLogout} style={{color: "red"}}>
+              Logout
+            </a>
+          </div>
+          </div>
       </div>
     </div>
   );
