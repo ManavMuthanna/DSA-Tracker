@@ -38,10 +38,7 @@ async function getQuestions() {
     try {
       // Retrieve all questions from the MongoDB collection
       const questions = await Question.find({});
-  
-      // Log the questions or return them as needed
-      console.log('Retrieved questions:', questions);
-  
+    
       return questions;
     } catch (error) {
       console.error(error);

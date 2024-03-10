@@ -1,4 +1,5 @@
-// questionsUtils.js
+import axios from 'axios';
+
 const organizeData = (questions) => {
     const organizedData = {
       easy: [],
@@ -25,5 +26,17 @@ const organizeData = (questions) => {
     return organizedData;
   };
   
-  export { organizeData };
+  const fetchData = async () => {
+    const baseURL = process.env.REACT_APP_BASE_URL;
+    try {
+      const response = await axios.get(`${baseURL}/questions/all`);
+      console.log("Response:", response.data.questions);
+      return response.data.questions; // Assuming the backend returns an array of questions
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
+  };
+
+  export { organizeData, fetchData };
   

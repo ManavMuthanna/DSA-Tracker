@@ -1,22 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RiCheckboxCircleLine, RiCheckboxCircleFill } from "react-icons/ri";
 import "../questions/questions.css";
+import { organizeData, fetchData } from '../questions/questionsUtil';
 
 function Questions({ selectedDifficulty = {} }) {
-  const object = {
-    easy: ["Two sum", "Balanced Paranthesis"],
-    medium: ["Two sum", "Balanced Paranthesis", "Splitwise"],
-    hard: ["Two sum", "Balanced Paranthesis"],
-  };
+  const [organizedData, setOrganizedData] = useState({
+    easy: [],
+    medium: [],
+    hard: [],
+  });
+
+  useEffect(() => {
+    const getDataAndOrganize = async () => {
+      try {
+        const questions = await fetchData();
+        const organizedData = organizeData(questions);
+
+        // Update the state with the organized data
+        setOrganizedData(organizedData);
+      } catch (error) {
+        // Handle errors
+        console.error('Error:', error);
+      }
+    };
+
+    // Call the function when the component mounts
+    getDataAndOrganize();
+  }, []); // Empty dependency array ensures the function is only called once
 
   const [checkedQuestions, setCheckedQuestions] = useState({
-    easy: Array(object.easy.length).fill(false),
-    medium: Array(object.medium.length).fill(false),
-    hard: Array(object.hard.length).fill(false),
+    easy: Array(organizedData.easy.length).fill(false),
+    medium: Array(organizedData.medium.length).fill(false),
+    hard: Array(organizedData.hard.length).fill(false),
   });
 
   const calculateProgress = (difficulty) => {
-    const totalQuestions = object[difficulty].length;
+    const totalQuestions = organizedData[difficulty].length;
     const checkedCount = checkedQuestions[difficulty].filter(Boolean).length;
     return `${checkedCount}/${totalQuestions}`;
   };
@@ -37,13 +56,14 @@ function Questions({ selectedDifficulty = {} }) {
     selectedDifficulty.medium === false &&
     selectedDifficulty.hard === false;
   console.log(allDifficultiesUnchecked);
+  
   return (
     <>
       <div className="table-div">
         {allDifficultiesUnchecked ? (
           <h2>No questions to recommend</h2>
         ) : (
-          Object.entries(object).map(
+          Object.entries(organizedData).map(
             ([difficulty, questions]) =>
               selectedDifficulty?.[difficulty] && (
                 <div className="question-table" key={difficulty}>
@@ -67,8 +87,8 @@ function Questions({ selectedDifficulty = {} }) {
                           <td className="checkbox-col" style={{ userSelect: "none" }}>
                             {checkedQuestions[difficulty][questionIndex] ? (
                               <RiCheckboxCircleFill
-                              size={24}
-                              color="darkgreen"
+                                size={24}
+                                color="darkgreen"
                                 onClick={() =>
                                   handleCheckboxChange(
                                     difficulty,
@@ -78,8 +98,8 @@ function Questions({ selectedDifficulty = {} }) {
                               />
                             ) : (
                               <RiCheckboxCircleLine
-                              size={24}
-                              color='gray'
+                                size={24}
+                                color='gray'
                                 onClick={() =>
                                   handleCheckboxChange(
                                     difficulty,
