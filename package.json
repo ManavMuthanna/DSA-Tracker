@@ -6,6 +6,9 @@
   "scripts": {
     "start": "concurrently -n \"FRONTEND,BACKEND\" -c \"red,blue\" \"npm run start:frontend\" \"npm run start:backend\"",
     "start:frontend": "cd client&& npm start",
-    "start:backend": "cd server/src && nodemon index.js"
+    "start:backend": "cd server/src && nodemon index.js",
+    "install:frontend": "cd client&& npm install",
+    "install:backend": "cd server && npm install"
+
   }
 }

@@ -69,7 +69,7 @@ function Navbar() {
     <div className="navbar">
       <h1 className="navbar-h1">
         {" "}
-        <Link to="/home">DSA Tracker</Link>
+        <Link className='nav-home' to="/home">DSA Tracker</Link>
       </h1>
 
       <div className="tags">
@@ -88,7 +88,7 @@ function Navbar() {
           " "
         </h2>
         <div id="logoutDropdown" className="dropdown-content" style={{ userSelect: "none" }}>
-            <a href="#" onClick={handleLogout} style={{color: "red"}}>
+            <a href="#0" onClick={handleLogout} style={{color: "red"}}>
               Logout
             </a>
           </div>
