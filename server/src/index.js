@@ -16,6 +16,10 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
+//Insert questions to DB
+const questionController = require('./controllers/question');
+questionController.insertQuestions();
+
 app.use(cors(corsOptions));
 // Parse JSON request body
 app.use(express.json());

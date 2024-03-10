@@ -83,11 +83,11 @@ function Navbar() {
         >
           <h2>Code</h2>
         </Link>
-        <div className="dropdown">
+        <div className="dropdown" style={{ userSelect: "none" }}>
         <h2 className="navbar-link" id="username" style={{ userSelect: "" }} onClick={toggleDropdown}>
           " "
         </h2>
-        <div id="logoutDropdown" className="dropdown-content">
+        <div id="logoutDropdown" className="dropdown-content" style={{ userSelect: "none" }}>
             <a href="#" onClick={handleLogout} style={{color: "red"}}>
               Logout
             </a>
