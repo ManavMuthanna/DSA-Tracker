@@ -1,7 +1,12 @@
 /* questions.css */
 
+.no-questions{
+  width: 80%;
+  height: 100vh;
+}
+
 .difficulty-table {
-    width: 150%;
+    width: 80%;
     height: auto;
     border-collapse: collapse;
     margin-top: 20px;

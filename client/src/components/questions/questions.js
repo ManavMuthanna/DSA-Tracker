@@ -61,7 +61,7 @@ function Questions({ selectedDifficulty = {} }) {
     <>
       <div className="table-div">
         {allDifficultiesUnchecked ? (
-          <h2>No questions to recommend</h2>
+          <div className="no-questions"><h2>No questions to recommend</h2></div>
         ) : (
           Object.entries(organizedData).map(
             ([difficulty, questions]) =>

@@ -36,13 +36,13 @@ function Sidebar() {
 
   return (
     <>
-      <div>
+      <div className="sidebar-comp">
         <div className="sidebar-heading">
           <p>Choose your preferences</p>
         </div>
         <div className="sidebar">
           <div className="sidebar-difficulty">
-            <h4>DIFFICULTY</h4>
+            <h4 style={{fontSize:"larger"}}>DIFFICULTY</h4>
             <br />
             <div className="checkboxes">
               <div className="diff-checkbox-row">

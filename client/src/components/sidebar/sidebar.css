@@ -6,7 +6,12 @@
     color: wheat;
 }
 
+.sidebar-comp{
+    height: auto;
+}
+
 .sidebar-label{
+    font-size: large;
     padding-left: 2%;
 }
 
@@ -19,6 +24,7 @@
     align-items: center;
     justify-content: center;
     color: wheat;
+    font-size: large;
 }
 
 .sidebar-difficulty {
