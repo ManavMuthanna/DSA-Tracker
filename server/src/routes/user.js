@@ -1,6 +1,6 @@
 const express = require('express');
 const { authenticate } = require('../middleware/auth');
-const { addQuestion } = require('../controllers/user');
+const { addQuestion, fetchQuestion } = require('../controllers/user');
 
 const router = express.Router();
 
@@ -12,5 +12,7 @@ router.get('/profile', authenticate, (req, res) => {
 router.post('/addQ', addQuestion,  (req, res) => {
 res.json({ message: `Questions added successfully` });
 });
+
+router.get('/fetchQ/:username', fetchQuestion);
 
 module.exports = router;

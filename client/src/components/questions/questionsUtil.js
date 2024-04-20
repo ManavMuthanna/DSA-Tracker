@@ -56,6 +56,21 @@ const organizeData = (questions) => {
     }
   };
   
+  const fetchUserQuestions = async () => {
+    const baseURL = process.env.REACT_APP_BASE_URL;
+    const username = "manav_m";
+    const url = `${baseURL}/user/fetchQ/${username}`;
 
-  export { organizeData, fetchData, addUserQuestions };
+  
+    try {
+      // Make a POST request to the endpoint with the username in the request body
+      const response = await axios.get(url);
+      return response.data; // Assuming the backend returns user questions
+    } catch (error) {
+      console.error('Error fetching user questions:', error);
+      throw error;
+    }
+  };
+
+  export { organizeData, fetchData, addUserQuestions, fetchUserQuestions };
   

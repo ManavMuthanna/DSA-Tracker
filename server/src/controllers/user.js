@@ -80,8 +80,21 @@ const addQuestion = async (req, res, next) => {
   }
 };
 
+const fetchQuestion = async (req, res, next) => {
+  const { username } = req.params;
+  
+  try {
+    const user = await User.findOne({ username });
+    // Retrieve all questions from the MongoDB collection
+    const questions = user.questions;
+    
+    res.json({ questions: questions });
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
 
 
 
-
-module.exports = { register, login, addQuestion };
+module.exports = { register, login, addQuestion, fetchQuestion };
