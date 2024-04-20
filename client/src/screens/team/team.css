@@ -57,3 +57,57 @@
     text-decoration: none;
     color: inherit; 
 }
+
+@media only screen and (max-width: 480px) {
+    /* Your CSS styles for smaller phones go here */
+    .team-body{
+        height: 100%;
+        width: 100%;
+    }
+
+    .team-member {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+    .team-img {
+        width: 90%;
+        height: 80%;
+        border-radius: 50%;
+        margin: 1%;
+    }
+
+    .team-name{
+        font-size: medium;
+    }
+  }
+
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    /* Your CSS styles for smaller phones go here */
+     .team-body{
+        height: 100%;
+        width: 100%;
+    }
+
+    /*
+    .team-member {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+    .team-img {
+        width: 90%;
+        height: 80%;
+        border-radius: 50%;
+        margin: 1%;
+    }
+
+    
+    .team-name{
+        font-size: medium;
+    } */
+  }

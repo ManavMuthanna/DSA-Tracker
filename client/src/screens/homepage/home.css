@@ -3,10 +3,6 @@
     flex-direction: row;
 }
 
-.home-sidebar{
-    position:static;
-}   
-
 .home-body{
     width: 100%;
     height: 100%;

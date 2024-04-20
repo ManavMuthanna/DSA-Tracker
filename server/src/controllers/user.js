@@ -53,4 +53,35 @@ const login = async (req, res, next) => {
   }
 };
 
-module.exports = { register, login };
+const addQuestion = async (req, res, next) => {
+  const { username, questions } = req.body; // Assuming you send the username along with the question names
+
+  try {
+    // Find the user by username
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Assuming you send the question names in the request body as an array of strings
+    if (!Array.isArray(questions)) {
+      return res.status(400).json({ message: 'Questions should be provided as an array' });
+    }
+
+    // Assign the new array of questions to the user's questions field
+    user.questions = questions;
+    
+    // Save the updated user document
+    await user.save();
+
+    res.json({ message: 'Questions updated successfully' });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+
+
+
+module.exports = { register, login, addQuestion };

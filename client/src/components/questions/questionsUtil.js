@@ -30,7 +30,7 @@ const organizeData = (questions) => {
     const baseURL = process.env.REACT_APP_BASE_URL;
     try {
       const response = await axios.get(`${baseURL}/questions/all`);
-      console.log("Response:", response.data.questions);
+      // console.log("Response:", response.data.questions);
       return response.data.questions; // Assuming the backend returns an array of questions
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -38,5 +38,24 @@ const organizeData = (questions) => {
     }
   };
 
-  export { organizeData, fetchData };
+  const addUserQuestions = async (questions) => {
+    const baseURL = process.env.REACT_APP_BASE_URL;
+    const url = `${baseURL}/user/addQ`;
+    const username = "manav_m";
+    
+    try{
+      // Make a POST request to the endpoint
+      const response = await axios.post(url, {
+        username,
+        questions,
+      });
+      return response.data; // Assuming the backend returns a message or confirmation
+    } catch (error) {
+      console.error('Error adding user questions:', error);
+      throw error;
+    }
+  };
+  
+
+  export { organizeData, fetchData, addUserQuestions };
   
