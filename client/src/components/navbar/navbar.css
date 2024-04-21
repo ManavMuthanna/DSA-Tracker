@@ -13,9 +13,9 @@
 } 
 
 .tags{
-    width: 15%;
+    width: 20%;
     display: flex;
-    padding-right: 2%;
+    padding-right: 1%;
     justify-content: space-around;
 }
 
@@ -64,4 +64,25 @@
   .nav-home{
     text-decoration: none;
     color: inherit; 
+  }
+
+  @media only screen and (max-width: 480px) {
+    /* Your CSS styles for smaller phones go here */
+    .navbar {
+      width: inherit;
+      flex-direction: column;
+      height: auto;
+      justify-content: center;
+  }
+
+  .tags {
+      width: 100%;
+      justify-content: space-around;
+      padding-right: 1%;
+  }
+  }
+
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    /* Your CSS styles for bigger phones go here */
+
   }

@@ -5,6 +5,9 @@ function Team(){
     return(
         <div className='team-body'>
         <div class="main-container">
+        <h1 className="team-project-h1">
+        <Link className='nav-home' to="/home">DSA Tracker</Link>
+        </h1>
         <h1 className='team-h1'>Our Team</h1>
         <hr className='team-hr'></hr>
         <div class="members">
