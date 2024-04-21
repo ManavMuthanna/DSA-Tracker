@@ -25,6 +25,11 @@ app.use(cors(corsOptions));
 // Parse JSON request body
 app.use(express.json());
 
+// Define a route for the root URL
+app.get('/', (req, res) => {
+  res.send("Hello World! I'm the backend for the DSA Tracker");
+});
+
 // Define authentication routes
 app.use('/auth', authRoutes);
 
