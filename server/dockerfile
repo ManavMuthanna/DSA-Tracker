@@ -1,0 +1,19 @@
+# Use Node.js as base image
+FROM node:alpine3.19
+
+WORKDIR /app
+
+# Copy all files and folders from the current directory to the image except those listed in .dockerignore
+COPY . /app
+
+# Clear npm cache and remove .npm directory
+RUN rm -rf /root/.npm && npm cache clean --force
+
+# Install concurrent running dependencies
+RUN npm install
+
+# Expose port
+EXPOSE 5000 
+
+# Command to run both client and server
+CMD cd src && node index.js

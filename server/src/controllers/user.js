@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto'); // Import the crypto module for SHA-256
-const User = require('../models/User');
+const User = require('../models/user');
 
 // Register a new user
 const register = async (req, res, next) => {

@@ -25,7 +25,7 @@ function Login() {
       navigate("/home");
     
       // Optionally, you can handle the response data here
-      console.log(response.data);
+      // console.log(response.data);
       } catch (error) {
       // Handle server-side validation errors
       console.error('Registration failed:', error.response.data);
