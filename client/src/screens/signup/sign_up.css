@@ -21,7 +21,7 @@
 }
 
 .signup-h1 {
-	color: #720455;
+	color: burlywood;
 }
 
 .signup-label {
@@ -62,4 +62,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.back-link{
+	text-decoration: none;
 }

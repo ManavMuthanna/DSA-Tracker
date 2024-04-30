@@ -1,5 +1,5 @@
 import "../signup/sign_up.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios';
 
 function Signup() {
@@ -55,7 +55,7 @@ function Signup() {
   return (
     <div className="signup-body">
       <div className="signup-main">
-        <h1 className="signup-h1">DSA Tracker</h1>
+      <Link className="back-link" to="/"><h1 className="signup-h1">DSA Tracker</h1></Link>
         <h3>Sign up</h3>
         <form onSubmit={handleSignupFormSubmit}>
           <label className="signup-label">Username:</label>
